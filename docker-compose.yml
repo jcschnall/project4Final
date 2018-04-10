@@ -38,13 +38,13 @@ services:
         environment:
           - GRADLE_USER_HOME=cache
           - SPRING_PROFILES_ACTIVE=dev
-  images:
+  user-images-api:
         image: anapsix/alpine-java:8_jdk_unlimited
         ports:
           - '8090:8090'
-        working_dir: /images
+        working_dir: /user-images-api
         volumes:
-          - ./images:/images
+          - ./user-images-api:/user-images-api
         depends_on:
           - postgresdev
         command: './gradlew bootRun'
