@@ -12,7 +12,7 @@ class IdeaList extends Component {
 
     async componentWillMount() {
         try {
-            const response = await axios.get('/cats')
+            const response = await axios.get('/images')
             this.setState({ ideas: response.data })
         } catch (error) {
             console.log('Error retrieving ideas!')
@@ -22,7 +22,7 @@ class IdeaList extends Component {
 
     deleteIdea = async (ideaId, index) => {
         try {
-            await axios.delete(`/cats/${ideaId}`)
+            await axios.delete(`/images/${ideaId}`)
             
             const updatedIdeasList = [...this.state.ideas]
             updatedIdeasList.splice(index, 1)
@@ -36,7 +36,7 @@ class IdeaList extends Component {
 
     createIdea = async (idea, index) => {
         try {
-            const newIdeaResponse = await axios.post(`/cats`, idea)
+            const newIdeaResponse = await axios.post(`/images`, idea)
 
             const updatedIdeasList = [...this.state.ideas]
             updatedIdeasList.push(newIdeaResponse.data)

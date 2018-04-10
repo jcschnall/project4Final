@@ -9,7 +9,7 @@ class App extends Component {
 
 
   render() {
-    if(window.location.pathname == '/cats' ){
+    if(window.location.pathname == '/images' ){
     return (
       <div>
         <IdeaList />

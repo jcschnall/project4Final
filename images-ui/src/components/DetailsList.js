@@ -10,8 +10,8 @@ class DetailsList extends Component {
 
     async componentWillMount() {
         try {
-            var CatId = window.location.pathname[(window.location.pathname).length-1]
-            const response = await axios.get(`/cats/${CatId}`)
+            var ImageId = window.location.pathname[(window.location.pathname).length-1]
+            const response = await axios.get(`/images/${ImageId}`)
             this.setState( {ideas: response.data} )
         } catch (error) {
             console.log('Error retrieving ideas!')
@@ -35,7 +35,7 @@ class DetailsList extends Component {
 
     createIdea = async (idea, index) => {
         try {
-            const newIdeaResponse = await axios.post(`/cats`, idea)
+            const newIdeaResponse = await axios.post(`/images`, idea)
 
             const updatedIdeasList = [...this.state.ideas]
             updatedIdeasList.push(newIdeaResponse.data)
